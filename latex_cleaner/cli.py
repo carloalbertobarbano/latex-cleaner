@@ -24,7 +24,7 @@ def _parser() -> argparse.ArgumentParser:
                     "directory is never modified.")
     p.add_argument("source", type=Path, help="project directory")
     p.add_argument("-o", "--output", type=Path,
-                   help="output directory (default: <source>_arxiv)")
+                   help="output directory (default: <source>_clean)")
     p.add_argument("-r", "--root", action="append", default=[], metavar="FILE",
                    help="root document to include (repeatable). Default: every .tex "
                         "file that contains \\begin{document}")
@@ -136,7 +136,7 @@ def main(argv: list[str] | None = None) -> int:
     src = args.source.resolve()
     if not src.is_dir():
         raise SystemExit(f"error: {args.source} is not a directory")
-    out = (args.output or src.with_name(src.name + "_arxiv")).resolve()
+    out = (args.output or src.with_name(src.name + "_clean")).resolve()
     _check_paths(src, out)
 
     if args.root:

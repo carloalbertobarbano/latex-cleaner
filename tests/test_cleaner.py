@@ -123,6 +123,11 @@ class ProjectTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertFalse((out / "x").exists())
 
+    def test_default_output_dir(self):
+        code, stdout, _ = run_cli(self.src)
+        self.assertEqual(code, 0)
+        self.assertTrue((self.tmp / "paper_clean" / "main.tex").is_file())
+
     def test_flatten_names(self):
         out = self.tmp / "flat"
         code, _, _ = run_cli(self.src, "-o", out, "--flatten", "-k", "figs2/teaser.png")

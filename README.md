@@ -29,7 +29,7 @@ Python 3.9 or later. No dependencies. `latexmk` is used only by `--check`.
 ## Usage
 
 ```sh
-latex-cleaner paper/                          # writes paper_arxiv/
+latex-cleaner paper/                          # writes paper_clean/
 latex-cleaner paper/ -o submission/ -r main.tex -r appendix.tex
 latex-cleaner paper/ --flatten --zip --check
 latex-cleaner paper/ -n                       # dry run: list kept and removed files
@@ -37,7 +37,7 @@ latex-cleaner paper/ -n                       # dry run: list kept and removed f
 
 | option | effect |
 |---|---|
-| `-o DIR` | output directory (default `<source>_arxiv`). It must be outside the source directory. |
+| `-o DIR` | output directory (default `<source>_clean`). It must be outside the source directory. |
 | `-r FILE` | root document, repeatable. Without it, every `.tex` file containing `\begin{document}` is a root. The roots in use are printed. |
 | `-f, --flatten` | put every file in the output directory itself and rewrite the paths in the sources |
 | `-k GLOB` | also keep files matching the pattern, e.g. `-k 'figures/*.pdf'` |
