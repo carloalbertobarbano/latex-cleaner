@@ -12,9 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fixture  # noqa: E402
-from arxiv_cleaner import lexer  # noqa: E402
-from arxiv_cleaner.cli import main  # noqa: E402
-from arxiv_cleaner.scanner import find_roots, scan  # noqa: E402
+from latex_cleaner import lexer  # noqa: E402
+from latex_cleaner.cli import main  # noqa: E402
+from latex_cleaner.scanner import find_roots, scan  # noqa: E402
 
 HAVE_TEX = shutil.which("pdflatex") is not None and shutil.which("latexmk") is not None
 

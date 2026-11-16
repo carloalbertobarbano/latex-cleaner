@@ -18,7 +18,7 @@ from .writer import Options, build_outputs, macro_path_conflicts, write
 
 def _parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="arxiv-cleaner",
+        prog="latex-cleaner",
         description="Copy a LaTeX project to a new directory keeping only the files "
                     "needed to compile it, with comments removed. The source "
                     "directory is never modified.")
@@ -104,7 +104,7 @@ def _compile_check(out: Path, roots: list[str], outputs: dict[str, str],
         print("check: latexmk not found, skipping", file=sys.stderr)
         return True
     ok = True
-    with tempfile.TemporaryDirectory(prefix="arxiv-cleaner-") as tmp:
+    with tempfile.TemporaryDirectory(prefix="latex-cleaner-") as tmp:
         work = Path(tmp) / "build"
         shutil.copytree(out, work)
         for root in roots:

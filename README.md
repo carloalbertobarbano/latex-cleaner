@@ -1,4 +1,4 @@
-# arxiv-cleaner
+# latex-cleaner
 
 Prepares the LaTeX sources of a paper for submission (arXiv or similar).
 The project is copied to a new directory that contains only the files needed
@@ -10,28 +10,29 @@ is only read.
 With [uv](https://docs.astral.sh/uv/), as a tool available on the `PATH`:
 
 ```sh
-uv tool install /path/to/arxiv-cleaner      # from a local checkout
-uv tool install --force /path/to/arxiv-cleaner   # after updating the code
-uv tool uninstall arxiv-cleaner
+uv tool install git+https://github.com/carloalbertobarbano/latex-cleaner.git
+uv tool upgrade latex-cleaner        # get the latest version
+uv tool uninstall latex-cleaner
 ```
 
 or run it once without installing:
 
 ```sh
-uvx --from /path/to/arxiv-cleaner arxiv-cleaner paper/
+uvx --from git+https://github.com/carloalbertobarbano/latex-cleaner.git latex-cleaner paper/
 ```
 
-With pip: `pip install .`. Without installing: `python -m arxiv_cleaner ...`.
+From a local checkout: `uv tool install .` (add `--editable` to pick up code
+changes without reinstalling), `pip install .`, or `python -m latex_cleaner ...`.
 
 Python 3.9 or later. No dependencies. `latexmk` is used only by `--check`.
 
 ## Usage
 
 ```sh
-arxiv-cleaner paper/                          # writes paper_arxiv/
-arxiv-cleaner paper/ -o submission/ -r main.tex -r appendix.tex
-arxiv-cleaner paper/ --flatten --zip --check
-arxiv-cleaner paper/ -n                       # dry run: list kept and removed files
+latex-cleaner paper/                          # writes paper_arxiv/
+latex-cleaner paper/ -o submission/ -r main.tex -r appendix.tex
+latex-cleaner paper/ --flatten --zip --check
+latex-cleaner paper/ -n                       # dry run: list kept and removed files
 ```
 
 | option | effect |
