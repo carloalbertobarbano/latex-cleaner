@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arxiv-cleaner"
+version = "0.1.0"
+description = "Prepare LaTeX sources for arXiv: keep only the needed files, strip comments, optionally flatten the tree"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Environment :: Console",
+    "Topic :: Text Processing :: Markup :: LaTeX",
+]
+
+[project.scripts]
+arxiv-cleaner = "arxiv_cleaner.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["arxiv_cleaner"]
+
+[tool.hatch.build.targets.sdist]
+include = ["arxiv_cleaner", "tests", "README.md", "pyproject.toml"]
